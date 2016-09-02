@@ -26,8 +26,10 @@ public class LoginServlet extends HttpServlet {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
 
+        if (dataModel != null)
+        {
 
-
+        }
 
 
 
