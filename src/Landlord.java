@@ -4,6 +4,7 @@
 public class Landlord extends User{
 
     public Landlord(String userName, String password) {
+
         super(userName, password);
     }
 }
