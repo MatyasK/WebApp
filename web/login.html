@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
 </head>
 <body>
 
-<form>
-    First name:<br>
-    <input type="text" name="firstname"><br>
-    Last name:<br>
-    <input type="text" name="lastname"><br>
+<form method="post" action="/LoginServlet">
+    Username<br>
+    <input type="text" name="username"><br>
+    Password<br>
+    <input type="text" name="password"><br>
 
     <input type="submit" value="Submit">
 </form>
-
+<br>
+If you don't have an account you can register  here:
 <form action="register.html">
     <input type="submit" value="Register">
 </form>
