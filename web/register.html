@@ -5,14 +5,16 @@
     <title>Register</title>
 </head>
 <body>
+<form method="post" action="/RegisterServlet">
     You can register <br>
     Username <br>
     <input type="text" name="username"> <br>
     Password <br>
     <input type="password" name="password"> <br>
     Account Type<br>
-    <input type="radio" name="type" value="landlord" checked> users.Landlord <br>
-    <input type="radio" name="type" value="tenant"> users.users.Tenant <br>
+    <input type="radio" name="type" value="landlord" checked> Landlord <br>
+    <input type="radio" name="type" value="tenant"> Tenant <br>
     <input type="submit" value="Register">
+</form>
 </body>
 </html>

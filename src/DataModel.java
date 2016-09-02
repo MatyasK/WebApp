@@ -22,8 +22,8 @@ public class DataModel {
 
 
 
-    public void addTenant(String username, String password){
-        users.add(new Tenant(username,password));
+    public void addTenant(Tenant tenant){
+        users.add(tenant);
     }
 
     public void addLandlord(Landlord landlord){

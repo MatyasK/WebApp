@@ -1,3 +1,5 @@
+import users.Landlord;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         if (dataModel != null){
 
         }
-        dataModel.addLandlord(userName,password);
+
 
 
 
