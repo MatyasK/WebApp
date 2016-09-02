@@ -33,5 +33,12 @@ public class DataModel {
         rooms.add(new Room(id,landlord,squaremater,price,city,false));
     }
 
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
+    }
 
 }

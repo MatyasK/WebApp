@@ -4,7 +4,7 @@ import users.Tenant;
 /**
  * Created by Matyas on 9/2/2016.
  */
-public class Room {
+public class    Room {
     private int ID;
     private Landlord landlord;
     private Tenant tenant;
