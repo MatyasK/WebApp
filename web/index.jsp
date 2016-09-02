@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Matyas
+  users.users: Matyas
   Date: 8/29/2016
   Time: 11:31 AM
   To change this template use File | Settings | File Templates.
@@ -12,14 +12,7 @@
   </head>
   <body>
 
-  <form>
-
-    First name:<br>
-    <input type="text" name="firstname"><br>
-    Last name:<br>
-    <input type="text" name="lastname"><br>
-    <input type="submit" value="Submit">
-  </form>
+  <a href="login.html">Login page</a>
 
   </body>
 </html>

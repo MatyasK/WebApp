@@ -1,3 +1,4 @@
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,10 +11,26 @@ import java.io.IOException;
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
+    private DataModel dataModel;
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        ServletContext servletContext = getServletContext();
+        dataModel = (DataModel) servletContext.getAttribute("data");
+
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
-        response.getWriter().println("hello"+ userName);
+        if (dataModel != null){
+
+        }
+        dataModel.addLandlord(userName,password);
+
+
+
+
 
     }
 
