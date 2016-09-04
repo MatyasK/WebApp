@@ -13,6 +13,8 @@
   <body>
 
   <a href="login.html">Login page</a>
+  <br>
+  <a href="/ShowRoomServlet">Show Rooms</a>
 
   </body>
 </html>

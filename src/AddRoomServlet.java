@@ -1,8 +1,11 @@
+import users.Landlord;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -22,6 +25,13 @@ public class AddRoomServlet extends HttpServlet {
         int roomnumber = Integer.parseInt(request.getParameter("roomnumber"));
         int squaremeter = Integer.parseInt(request.getParameter("sqmeters"));
         double price = Double.parseDouble(request.getParameter("price"));
+        String city = request.getParameter("city");
+        HttpSession session = request.getSession();
+
+
+        if (model != null){
+            model.addRoom(new Room(roomnumber,(Landlord)session.getAttribute("username"),squaremeter,price,city,false));
+        }
 
 
 

@@ -18,6 +18,18 @@ public class DataModel {
     public DataModel(){
         users = new ArrayList<>();
         rooms = new ArrayList<>();
+        Landlord landlord = new Landlord("matyas","matyas");
+        Tenant tenant = new Tenant("eric","eric");
+        users.add(landlord);
+        users.add(tenant);
+
+        rooms.add(new Room(100,landlord,150,50,"Enschede",true));
+        rooms.add(new Room(101,new Landlord("this","this"),150,50,"Enschede",true));
+        rooms.add(new Room(102,landlord,150,50,"Enschede",true));
+        rooms.add(new Room(103,new Landlord("this","this"),170,70,"Enschede",true));
+        rooms.add(new Room(104,landlord,170,70,"Enschede",true));
+        rooms.add(new Room(105,new Landlord("this","this"),170,70,"Enschede",true));
+        rooms.add(new Room(106,landlord,170,70,"Enschede",true));
     }
 
 
@@ -29,8 +41,9 @@ public class DataModel {
     public void addLandlord(Landlord landlord){
         users.add(landlord);
     }
-    public void addRoom(int id,  Landlord landlord, int squaremater, double price, String city ){
-        rooms.add(new Room(id,landlord,squaremater,price,city,false));
+
+    public void addRoom(Room room){
+        rooms.add(room);
     }
 
     public ArrayList<User> getUsers() {
@@ -40,5 +53,7 @@ public class DataModel {
     public ArrayList<Room> getRooms() {
         return rooms;
     }
+
+
 
 }

@@ -29,7 +29,7 @@ public class RegisterServlet extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 
-            if (type.equals("Landlord")){
+            if (type.equals("landlord")){
                 dataModel.addLandlord(new Landlord(username,password));
             }else if (type.equals("tenant")){
                 dataModel.addTenant(new Tenant(username,password));

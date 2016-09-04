@@ -5,7 +5,7 @@ import users.Tenant;
  * Created by Matyas on 9/2/2016.
  */
 public class    Room {
-    private int ID;
+    private int roomNumber;
     private Landlord landlord;
     private Tenant tenant;
     private int squaremeter;
@@ -13,8 +13,8 @@ public class    Room {
     private String city;
     private boolean rentStatus;
 
-    public Room(int ID, Landlord landlord, int squaremeter, double price, String city, boolean rentStatus) {
-        this.ID = ID;
+    public Room(int roomNumber, Landlord landlord, int squaremeter, double price, String city, boolean rentStatus) {
+        this.roomNumber = roomNumber;
         this.landlord = landlord;
         this.squaremeter = squaremeter;
         this.price = price;
@@ -25,7 +25,34 @@ public class    Room {
     public void addTenant(Tenant tenant){
         rentStatus = true;
         this.tenant = tenant;
+    }
 
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public Landlord getLandlord() {
+        return landlord;
+    }
+
+    public Tenant getTenant() {
+        return tenant;
+    }
+
+    public int getSquaremeter() {
+        return squaremeter;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public boolean isRentStatus() {
+        return rentStatus;
     }
 }
 

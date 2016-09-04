@@ -2,7 +2,6 @@
  * Created by Matyas on 9/2/2016.
  */
 
-import javax.naming.Context;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
