@@ -20,6 +20,7 @@ public class AddRoomServlet extends HttpServlet {
         super.init();
         model = (DataModel) getServletContext().getAttribute("data");
 
+
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int roomnumber = Integer.parseInt(request.getParameter("roomnumber"));
@@ -28,9 +29,13 @@ public class AddRoomServlet extends HttpServlet {
         String city = request.getParameter("city");
         HttpSession session = request.getSession();
 
-
         if (model != null){
+            int roomNumbers = model.getRooms().size();
             model.addRoom(new Room(roomnumber,(Landlord)session.getAttribute("username"),squaremeter,price,city,false));
+            if (roomNumbers < model.getRooms().size()){
+                System.out.println("Room is added");
+            }
+            response.sendRedirect("ShowRoomServlet");
         }
 
 

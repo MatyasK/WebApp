@@ -67,7 +67,7 @@ public class ShowRoomServlet extends HttpServlet {
         }
         out.println("</table>");
         out.println("<br>");
-        out.println("<a href=\"addroom.html\">You can add new Room Here</a>");
+        out.println("<a href=\"newroom.html\">You can add new Room Here</a>");
         out.println("</body>");
 
         out.println("</html>");
