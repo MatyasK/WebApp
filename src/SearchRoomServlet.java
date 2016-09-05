@@ -38,13 +38,16 @@ public class SearchRoomServlet extends HttpServlet {
             int minimumsquarematers = Integer.valueOf(request.getParameter("minsquare"));
             int maximumprice = Integer.valueOf(request.getParameter("maxprice"));
             String city = request.getParameter("city");
-
+            System.out.println("square: " + minimumsquarematers + "maxprice: " + maximumprice);
             for (Room room : rooms) {
-                if (room.isRentStatus() == true && room.getPrice() <= maximumprice && room.getSquaremeter() >= minimumsquarematers && room.getCity() == city){
-                    out.println("<tr>");
-                    out.println("<td>" + room.getRoomNumber() + "</td>");
-                    out.println("</tr>");
-
+                if (room.isRentStatus() == true && room.getCity().equals(city) && room.getPrice() <= maximumprice){
+                    System.out.println("found without m2");
+                    if (minimumsquarematers >= room.getSquaremeter()) { //TODO this if should be in the first if statment but for some reasin if they all in one if no result.
+                        System.out.println("found with m2");
+                        out.println("<tr>");
+                        out.println("<td>" + room.getRoomNumber() + "</td>");
+                        out.println("</tr>");
+                    }
                 }
             }
             out.println("</table>");
