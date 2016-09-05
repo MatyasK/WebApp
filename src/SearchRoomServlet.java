@@ -58,8 +58,10 @@ public class SearchRoomServlet extends HttpServlet {
             }
             out.println("</table>");
             out.println("<br>");
+            out.println("<a href=\"LogoutServlet\">Logout</a>");
             out.println("</body>");
             out.println("</html>");
+
         }
     }
 
