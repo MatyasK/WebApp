@@ -11,7 +11,7 @@ public class    Room {
     private int squaremeter;
     private double price;
     private String city;
-    private boolean rentStatus;
+    private boolean rentStatus; // true if rented false if is free
 
     public Room(int roomNumber, Landlord landlord, int squaremeter, double price, String city, boolean rentStatus) {
         this.roomNumber = roomNumber;

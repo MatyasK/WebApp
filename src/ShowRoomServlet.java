@@ -43,7 +43,10 @@ public class ShowRoomServlet extends HttpServlet {
         out.println("<body bgcolor=\"white\">");
         out.println("<table border=\"1\">");
         out.println("<tr>");
-        out.println("<th>number</th>");
+        out.println("<th>Room number</th>");
+        out.println("<th>Rented </th>");
+        out.println("<th>Price </th>");
+        out.println("<th>City </th>");
         out.println("</tr");
 
         boolean landlordHasRoom = false;
@@ -51,6 +54,10 @@ public class ShowRoomServlet extends HttpServlet {
             if (room.getLandlord() == session.getAttribute("username")) {
                 out.println("<tr>");
                 out.println("<td>" + room.getRoomNumber() + "</td>");
+                out.println("<td>" + room.isRentStatus() + "</td>");
+                out.println("<td>" + room.getPrice()+ "</td>");
+                out.println("<td>" + room.getCity() + "</td>");
+
                 out.println("</tr>");
                 landlordHasRoom = true;
             }

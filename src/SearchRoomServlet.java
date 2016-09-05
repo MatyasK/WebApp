@@ -33,7 +33,11 @@ public class SearchRoomServlet extends HttpServlet {
             out.println("<body bgcolor=\"white\">");
             out.println("<table border=\"1\">");
             out.println("<tr>");
-            out.println("<th>number</th>");
+            out.println("<th>Room number</th>");
+            out.println("<th>Square meters</th>");
+            out.println("<th>Price</th>");
+            out.println("<th> Landlord Name</th>");
+            out.println("<th> City </th>");
             out.println("</tr");
             int minimumsquarematers = Integer.valueOf(request.getParameter("minsquare"));
             int maximumprice = Integer.valueOf(request.getParameter("maxprice"));
@@ -46,6 +50,10 @@ public class SearchRoomServlet extends HttpServlet {
                         System.out.println("found with m2");
                         out.println("<tr>");
                         out.println("<td>" + room.getRoomNumber() + "</td>");
+                        out.println("<td>"+  room.getSquaremeter() + "</td>");
+                        out.println("<td>"+  room.getPrice() + "</td>");
+                        out.println("<td>"+  room.getLandlord().getUserName() + "</td>");
+                        out.println("<td>"+  room.getCity() + "</td>");
                         out.println("</tr>");
                     }
                 }
