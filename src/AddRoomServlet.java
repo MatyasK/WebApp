@@ -27,7 +27,7 @@ public class AddRoomServlet extends HttpServlet {
         int squaremeter = Integer.parseInt(request.getParameter("sqmeters"));
         double price = Double.parseDouble(request.getParameter("price"));
         String city = request.getParameter("city");
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
 
         if (model != null){
             int roomNumbers = model.getRooms().size();
