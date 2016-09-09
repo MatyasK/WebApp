@@ -28,17 +28,19 @@ public class AddRoomServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         String city = request.getParameter("city");
         HttpSession session = request.getSession(false);
-
-        if (model != null){
-            int roomNumbers = model.getRooms().size();
-            model.addRoom(new Room(roomnumber,(Landlord)session.getAttribute("username"),squaremeter,price,city,false));
-            if (roomNumbers < model.getRooms().size()){
-                System.out.println("Room is added");
+        if ( session == null || session.getAttribute("username") == null ) {
+            response.sendRedirect("login.html");
+        }else {
+            if (model != null) {
+                int roomNumbers = model.getRooms().size();
+                model.addRoom(new Room(roomnumber, (Landlord) session.getAttribute("username"), squaremeter, price, city, false));
+                if (roomNumbers < model.getRooms().size()) {
+                    System.out.println("Room is added");
+                }
+                response.sendRedirect("ShowRoomServlet");
             }
-            response.sendRedirect("ShowRoomServlet");
+
         }
-
-
 
     }
 

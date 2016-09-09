@@ -39,47 +39,14 @@ public class LoginServlet extends HttpServlet {
                     if (users.get(i).getUserName().equals(userName) && users.get(i).getPassword().equals(password)) {
                         validLogin = true;
                         if (users.get(i) instanceof Tenant) {
-                            HttpSession session = request.getSession(true);
+                            HttpSession session = request.getSession();
                             session.setAttribute("username", users.get(i));
-                            Cookie[] cookies = request.getCookies();
-                            if (cookies.length == 1) {
-                                Cookie cookie = new Cookie("visits", "1");
-                                cookie.setMaxAge(30 * 60);
-                                response.addCookie(cookie);
-                            }else {
-                                for (Cookie cookie : cookies) {
-                                    if (cookie.getName().equals("visits")){
-                                        int numberOfLogins = Integer.valueOf(cookie.getValue());
-                                        System.out.println("value before:" + numberOfLogins);
-                                        numberOfLogins++;
-                                        cookie.setValue(String.valueOf(numberOfLogins));
-                                        System.out.println("value after" + numberOfLogins);
-                                        response.addCookie(cookie);
-                                    }
-                                }
-                            }
-                            response.sendRedirect("tenant.html");
+                            request.getRequestDispatcher("WEB-INF/tenant.html").forward(request,response);
+
 
                         } else if (users.get(i) instanceof Landlord) {
-                            HttpSession session = request.getSession(true);
+                            HttpSession session = request.getSession();
                             session.setAttribute("username", users.get(i));
-                            Cookie[] cookies = request.getCookies();
-                            if (cookies.length == 1) {
-                                Cookie cookie = new Cookie("visits", "1");
-                                cookie.setMaxAge(30 * 60);
-                                response.addCookie(cookie);
-                            }else {
-                                for (Cookie cookie : cookies) {
-                                    if (cookie.getName().equals("visits")){
-                                        int numberOfLogins = Integer.valueOf(cookie.getValue());
-                                        System.out.println("value before:" + numberOfLogins);
-                                        numberOfLogins++;
-                                        cookie.setValue(String.valueOf(numberOfLogins));
-                                        System.out.println("value after" + numberOfLogins);
-                                        response.addCookie(cookie);
-                                    }
-                                }
-                            }
                             response.sendRedirect("ShowRoomServlet");
                         }
                     }
