@@ -1,7 +1,9 @@
+package domain;
 
-import users.Landlord;
-import users.Tenant;
-import users.User;
+import domain.Landlord;
+import domain.Room;
+import domain.Tenant;
+import domain.User;
 
 import java.util.ArrayList;
 
@@ -52,6 +54,21 @@ public class DataModel {
 
     public ArrayList<Room> getRooms() {
         return rooms;
+    }
+
+    /**
+     *
+     * @param username
+     * @return true if the username exist, false if is available
+     */
+    public Boolean userNameExist(String username){
+        boolean exist = false;
+        for (User user : users) {
+            if (user.getUserName().equals(username)){
+                exist = true;
+            }
+        }
+        return exist;
     }
 
 

@@ -1,3 +1,6 @@
+import domain.DataModel;
+import domain.Room;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,16 +42,16 @@ public class SearchRoomServlet extends HttpServlet {
             if (dataModel != null) {
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>available rooms</title>");
+                out.println("<title>Available rooms</title>");
                 out.println("</head>");
                 out.println("<body bgcolor=\"white\">");
                 out.println("<table border=\"1\">");
                 out.println("<tr>");
-                out.println("<th>Room number</th>");
+                out.println("<th>dRoom number</th>");
                 out.println("<th>Square meters</th>");
                 out.println("<th>Price</th>");
-                out.println("<th> Landlord Name</th>");
-                out.println("<th> City </th>");
+                out.println("<th>Landlord Name</th>");
+                out.println("<th>City</th>");
                 out.println("</tr");
                 int minimumsquarematers = Integer.valueOf(request.getParameter("minsquare"));
                 int maximumprice = Integer.valueOf(request.getParameter("maxprice"));

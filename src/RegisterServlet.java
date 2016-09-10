@@ -1,5 +1,6 @@
-import users.Landlord;
-import users.Tenant;
+import domain.DataModel;
+import domain.Landlord;
+import domain.Tenant;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ import java.io.PrintWriter;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
     private DataModel dataModel;
+
     @Override
     public void init() throws ServletException {
         super.init();
@@ -23,30 +25,47 @@ public class RegisterServlet extends HttpServlet {
         dataModel = (DataModel) servletContext.getAttribute("data");
 
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (dataModel != null){
+        if (dataModel != null) {
             String type = request.getParameter("type");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            if (username != null && password != null) {
+                if (!dataModel.userNameExist(username)) {
+                    if (type.equals("landlord")) {
+                        dataModel.addLandlord(new Landlord(username, password));
+                    } else if (type.equals("tenant")) {
+                        dataModel.addTenant(new Tenant(username, password));
+                    }
+                    response.setContentType("text/html");
+                    PrintWriter out = response.getWriter();
 
-            if (type.equals("landlord")){
-                dataModel.addLandlord(new Landlord(username,password));
-            }else if (type.equals("tenant")){
-                dataModel.addTenant(new Tenant(username,password));
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Valid Register</title>");
+                    out.println("</head>");
+                    out.println("<body bgcolor=\"white\">");
+                    out.println("You registered you can <a href=\"login.html\">Login now</a>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }else {
+                    response.setContentType("text/html");
+                    PrintWriter out = response.getWriter();
+
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Valid Register</title>");
+                    out.println("</head>");
+                    out.println("<body bgcolor=\"white\">");
+                    out.println("This username is already exist, You can try <a href=\"register.html\">again");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
             }
         }
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
 
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Succes Register</title>");
-        out.println("</head>");
-        out.println("<body bgcolor=\"white\">");
-        out.println("You registered you can <a href=\"login.html\">Login now</a>" );
-        out.println("</body>");
-        out.println("</html>");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,5 +1,4 @@
-import users.Landlord;
-import users.Tenant;
+package domain;
 
 /**
  * Created by Matyas on 9/2/2016.

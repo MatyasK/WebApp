@@ -1,13 +1,13 @@
-import users.Landlord;
-import users.Tenant;
-import users.User;
+import domain.DataModel;
+import domain.Landlord;
+import domain.Tenant;
+import domain.User;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**

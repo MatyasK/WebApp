@@ -1,4 +1,6 @@
-import users.Landlord;
+import domain.DataModel;
+import domain.Landlord;
+import domain.Room;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +37,7 @@ public class AddRoomServlet extends HttpServlet {
                 int roomNumbers = model.getRooms().size();
                 model.addRoom(new Room(roomnumber, (Landlord) session.getAttribute("username"), squaremeter, price, city, false));
                 if (roomNumbers < model.getRooms().size()) {
-                    System.out.println("Room is added");
+                    System.out.println("domain.Room is added");
                 }
                 response.sendRedirect("ShowRoomServlet");
             }

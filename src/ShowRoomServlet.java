@@ -1,4 +1,5 @@
-import users.Landlord;
+import domain.DataModel;
+import domain.Room;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -42,7 +43,7 @@ public class ShowRoomServlet extends HttpServlet {
                 ArrayList<Room> rooms = dataModel.getRooms();
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Succes Register</title>");
+                out.println("<title>Your rooms</title>");
                 out.println("</head>");
                 out.println("<body bgcolor=\"white\">");
                 out.println("<table border=\"1\">");
@@ -66,22 +67,18 @@ public class ShowRoomServlet extends HttpServlet {
                         landlordHasRoom = true;
                     }
                 }
-                if (landlordHasRoom = false) {
+
+                out.println("</table>");
+                if (landlordHasRoom == false) {
                     out.println("sorry you don't have room yet!");
                 }
-                out.println("</table>");
                 out.println("<br>");
-                out.println("<a href=\"newroom.html\">You can add new Room Here</a>");
-                out.println("<br>");
-                out.println("<form action=\"/ShowRoomServlet\" method=\"post\">\n" +
-                        "    <input type=\"submit\" value=\"Add New Room\" " +
-                        "</form>");
-                out.println("<br>");
-                out.println("<a href=\"LogoutServlet\">Logout</a>");
+                out.println("<a href=\"/NewRoomForwardServlet\">You can add new Room Here</a>");
                 out.println("<br>");
                 out.println("<a href=\"/OverViewServlet\">OverView</a>");
+                out.println("<br>");
+                out.println("<a href=\"LogoutServlet\">Logout</a>");
                 out.println("</body>");
-
                 out.println("</html>");
             }
         }
