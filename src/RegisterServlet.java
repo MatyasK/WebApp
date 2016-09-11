@@ -27,41 +27,46 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
         if (dataModel != null) {
             String type = request.getParameter("type");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            if (username != null && password != null) {
+            if (!username.isEmpty() && !password.isEmpty()) {
                 if (!dataModel.userNameExist(username)) {
                     if (type.equals("landlord")) {
                         dataModel.addLandlord(new Landlord(username, password));
                     } else if (type.equals("tenant")) {
                         dataModel.addTenant(new Tenant(username, password));
                     }
-                    response.setContentType("text/html");
-                    PrintWriter out = response.getWriter();
-
                     out.println("<html>");
                     out.println("<head>");
                     out.println("<title>Valid Register</title>");
                     out.println("</head>");
                     out.println("<body bgcolor=\"white\">");
-                    out.println("You registered you can <a href=\"login.html\">Login now</a>");
+                    out.println("Successful registration, You can <a href=\"register\">Login now</a>");
                     out.println("</body>");
                     out.println("</html>");
                 }else {
-                    response.setContentType("text/html");
-                    PrintWriter out = response.getWriter();
-
                     out.println("<html>");
                     out.println("<head>");
-                    out.println("<title>Valid Register</title>");
+                    out.println("<title>Wrong Username</title>");
                     out.println("</head>");
                     out.println("<body bgcolor=\"white\">");
                     out.println("This username is already exist, You can try <a href=\"register.html\">again");
                     out.println("</body>");
                     out.println("</html>");
                 }
+            }else {
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>INValid Register</title>");
+                out.println("</head>");
+                out.println("<body bgcolor=\"white\">");
+                out.println("Please enter username or password <a href=\"register.html\">Register Again</a>");
+                out.println("</body>");
+                out.println("</html>");
             }
         }
 
